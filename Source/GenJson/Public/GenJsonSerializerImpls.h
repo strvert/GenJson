@@ -21,7 +21,11 @@ namespace GenJson
 	{
 		static FORCEINLINE bool Write(const FStringView Value, FJsonWriter& Writer)
 		{
-			return Writer.String(Value.GetData(), Value.Len());
+			if (Value.Len() != 0)
+			{
+				return Writer.String(Value.GetData(), Value.Len());
+			}
+			return Writer.String(TEXT(""));
 		}
 	};
 

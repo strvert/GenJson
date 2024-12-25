@@ -4,9 +4,14 @@
 
 class FGenJsonModule : public IModuleInterface
 {
-public:
+	DECLARE_MULTICAST_DELEGATE(FOnGenJsonModuleStartup);
 
-	/** IModuleInterface implementation */
+public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+
+	FOnGenJsonModuleStartup& OnGenJsonModuleStartupDelegate() { return OnGenJsonModuleStartup; }
+
+private:
+	FOnGenJsonModuleStartup OnGenJsonModuleStartup;
 };
