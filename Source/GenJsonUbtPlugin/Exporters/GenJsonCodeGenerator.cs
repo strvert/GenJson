@@ -270,6 +270,10 @@ public sealed class GenJsonCodeGenerator
 		builder.AppendLine("    Writer.StartObject(); \\");
 		foreach (UhtProperty property in record.Type.Properties)
 		{
+			if (property.MetaData.ContainsKey("SkipSerialize"))
+			{
+				continue;
+			}
 			AppendWriteProperty(builder, property, record.RenameAll);
 		}
 
