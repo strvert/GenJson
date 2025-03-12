@@ -6,8 +6,8 @@ namespace GenJson
 {
 	using FRapidJsonStringBuffer = rapidjson::GenericStringBuffer<rapidjson::UTF8<>>;
 
-	using FJsonWriter = rapidjson::Writer<FRapidJsonStringBuffer, rapidjson::UTF16<>>;
-	using FJsonReader = rapidjson::GenericReader<rapidjson::UTF8<>, rapidjson::UTF16<>>;
+	using FJsonWriter = rapidjson::Writer<FRapidJsonStringBuffer, rapidjson::UTF16<TCHAR>>;
+	using FJsonReader = rapidjson::GenericReader<rapidjson::UTF8<>, rapidjson::UTF16<TCHAR>>;
 
 	inline FUtf8StringView ToUtf8String(const FRapidJsonStringBuffer& Buffer)
 	{
